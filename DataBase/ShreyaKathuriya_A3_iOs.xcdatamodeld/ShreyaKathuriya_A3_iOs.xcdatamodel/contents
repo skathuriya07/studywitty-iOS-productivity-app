@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D80" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Feedback" representedClassName="Feedback" syncable="YES" codeGenerationType="class">
+        <attribute name="feedbackLevel" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sessionName" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
+        <attribute name="audioNoteUrl" optional="YES" attributeType="String"/>
+        <attribute name="completionStatus" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="noteId" optional="YES" attributeType="String"/>
+        <attribute name="sessionId" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Quotes" representedClassName="Quotes" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="quote" optional="YES" attributeType="String"/>
+        <attribute name="quoteId" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Session" representedClassName="Session" syncable="YES">
+        <attribute name="numberOfTasks" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="numberOfTasksCompleted" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sessionCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sessionId" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sessionType" optional="YES" attributeType="String"/>
+        <relationship name="tasksInThisSession" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Task" inverseName="taskForSession" inverseEntity="Task"/>
+        <relationship name="thoughtDuringSession" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Thought" inverseName="duringSession" inverseEntity="Thought"/>
+    </entity>
+    <entity name="Task" representedClassName="Task" syncable="YES">
+        <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="sessionName" optional="YES" attributeType="String"/>
+        <attribute name="task" optional="YES" attributeType="String"/>
+        <attribute name="taskId" optional="YES" attributeType="String"/>
+        <relationship name="taskForSession" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="tasksInThisSession" inverseEntity="Session"/>
+    </entity>
+    <entity name="Thought" representedClassName="Thought" syncable="YES">
+        <attribute name="thought" optional="YES" attributeType="String"/>
+        <relationship name="duringSession" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="thoughtDuringSession" inverseEntity="Session"/>
+    </entity>
+    <entity name="Todo" representedClassName="Todo" syncable="YES" codeGenerationType="class">
+        <attribute name="completionStatus" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Feedback" positionX="84.45452880859375" positionY="83.30032348632807" width="128" height="74"/>
+        <element name="Note" positionX="-308.9051513671875" positionY="60.6251220703125" width="164.6232299804688" height="119"/>
+        <element name="Quotes" positionX="-307.3021240234375" positionY="-69.36795043945312" width="128" height="89"/>
+        <element name="Session" positionX="-127.0125122070312" positionY="-292.6077728271484" width="128" height="118"/>
+        <element name="Task" positionX="142.16796875" positionY="-214.2877502441406" width="128" height="119"/>
+        <element name="Thought" positionX="-367.6598510742188" positionY="-163.303955078125" width="128" height="58"/>
+        <element name="Todo" positionX="-152.0191040039062" positionY="-70.37350463867188" width="128" height="89"/>
+    </elements>
+</model>

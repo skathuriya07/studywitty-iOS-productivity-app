@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D80" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Quote" representedClassName="Quote" syncable="YES">
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="quote" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="ToDoItems" representedClassName="ToDoItems" syncable="YES">
+        <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="task" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Quote" positionX="-54" positionY="-9" width="128" height="59"/>
+        <element name="ToDoItems" positionX="-36" positionY="27" width="128" height="74"/>
+    </elements>
+</model>
